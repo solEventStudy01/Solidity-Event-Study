@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -20,8 +20,8 @@ contract DssPsm {
+ 
+     // --- Auth ---
+     mapping (address => uint256) public wards;
+-    function rely(address usr) external auth { wards[usr] = 1; emit AuthUser(usr); }
+-    function deny(address usr) external auth { wards[usr] = 0; emit DeauthUser(usr); }
++    function rely(address usr) external auth { wards[usr] = 1; emit Rely(usr); }
++    function deny(address usr) external auth { wards[usr] = 0; emit Deny(usr); }
+     modifier auth { require(wards[msg.sender] == 1); _; }</code>
+</pre>
+</div>
